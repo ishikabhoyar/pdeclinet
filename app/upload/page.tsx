@@ -1,11 +1,13 @@
 "use client"
 
 import { useState, useRef, useCallback } from "react"
+import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Navbar from "@/components/Navbar"
 import { Button } from "@/components/ui/button"
 
 export default function UploadPage() {
+  const router = useRouter()
   const [uploadProgress, setUploadProgress] = useState(0)
   const [expandedQuestion, setExpandedQuestion] = useState<string | null>(null)
   const [files, setFiles] = useState<File[]>([])
@@ -233,8 +235,8 @@ export default function UploadPage() {
             </Button>
             
             <Button 
-              variant="outline" 
-              className="text-sm border border-gray-300 bg-white hover:bg-gray-50 rounded-md px-4 py-2"
+              onClick={() => router.push('/privacy')}
+              className="text-sm bg-black text-white hover:bg-gray-800 rounded-md px-6 py-2"
             >
               Continue
             </Button>
