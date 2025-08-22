@@ -1,5 +1,4 @@
-"use import Link from "next/link";
-import { Button } from "@/components/ui/button";lient"
+"use client"
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
@@ -66,7 +65,7 @@ export default function PrivacySettingsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
       <Navbar />
       
       <main className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -226,12 +225,12 @@ export default function PrivacySettingsPage() {
           <div className="mb-8 bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center">
-                <div className="h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
-                  <div className="h-2.5 w-2.5 rounded-full bg-indigo-600"></div>
+                <div className="h-5 w-5 rounded-full bg-[#DF7373]/10 flex items-center justify-center mr-2">
+                  <div className="h-2.5 w-2.5 rounded-full bg-[#DF7373]"></div>
                 </div>
                 <h2 className="text-lg font-semibold text-gray-900">Specific Permissions</h2>
               </div>
-              <button className="text-indigo-600 hover:text-indigo-700 text-sm font-medium flex items-center transition-colors">
+              <button className="text-[#DF7373] hover:text-[#DF7373]/80 text-sm font-medium flex items-center transition-colors">
                 <svg className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
@@ -289,7 +288,7 @@ export default function PrivacySettingsPage() {
                 handleSaveChanges();
                 router.push('/dashboard');
               }}
-              className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 rounded-lg px-10 py-2 h-12 font-medium shadow-lg shadow-indigo-200/50"
+              className="bg-gradient-to-r from-[#DF7373] to-[#DF7373]/80 text-white hover:opacity-90 rounded-lg px-10 py-2 h-12 font-medium shadow-lg shadow-[#DF7373]/20"
             >
               Save & Continue
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
