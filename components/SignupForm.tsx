@@ -52,8 +52,8 @@ export function SignupForm() {
     <div className="w-full max-w-md mx-auto md:mx-0">
       <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
         <div className="flex items-center space-x-2 mb-2">
-          <div className="w-2 h-2 rounded-full bg-indigo-600"></div>
-          <div className="w-2 h-2 rounded-full bg-purple-600"></div>
+          <div className="w-2 h-2 rounded-full bg-[#DF7373]"></div>
+          <div className="w-2 h-2 rounded-full bg-[#DF7373]/80"></div>
           <div className="w-2 h-2 rounded-full bg-gray-300"></div>
         </div>
         <h2 className="text-2xl font-bold mb-2">Join DeCliNet</h2>
@@ -100,7 +100,7 @@ export function SignupForm() {
           <div className="pt-3">
             <Button 
               type="submit" 
-              className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white h-12 rounded-lg font-medium shadow-lg shadow-indigo-200/50 transition-all"
+              className="w-full bg-gradient-to-r from-[#DF7373] to-[#DF7373]/80 hover:to-[#DF7373]/90 text-white h-12 rounded-lg font-medium shadow-lg shadow-[#DF7373]/50 transition-all"
             >
               Get Started
             </Button>
@@ -108,18 +108,18 @@ export function SignupForm() {
           
           <div className="text-xs text-gray-500 mt-5 text-center">
             By signing up, you agree to our{' '}
-            <Link href="/terms" className="text-indigo-600 hover:text-indigo-700 font-medium">
+            <Link href="/terms" className="text-[#DF7373] hover:text-[#DF7373]/80 font-medium">
               Terms of Service
             </Link>{' '}
             and{' '}
-            <Link href="/privacy" className="text-indigo-600 hover:text-indigo-700 font-medium">
+            <Link href="/privacy" className="text-[#DF7373] hover:text-[#DF7373]/80 font-medium">
               Privacy Policy
             </Link>.
           </div>
           
           <div className="text-center text-sm mt-4">
             <span className="text-gray-500">Already have an account?</span>{' '}
-            <Link href="/login" className="text-indigo-600 font-medium hover:text-indigo-700">
+            <Link href="/login" className="text-[#DF7373] hover:text-[#DF7373]/80 font-medium">
               Log in
             </Link>
           </div>

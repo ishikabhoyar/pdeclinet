@@ -84,7 +84,7 @@ export function NavBar({ items, className }: NavBarProps) {
                 "relative cursor-pointer text-sm font-medium px-4 py-1.5 rounded-full transition-all flex items-center justify-center",
                 isActive 
                   ? "text-white" 
-                  : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/30"
+                  : "text-gray-700 dark:text-gray-300 hover:text-[#DF7373] dark:hover:text-[#DF7373] hover:bg-[#DF7373]/10 dark:hover:bg-[#DF7373]/10"
               )}
             >
               <span className="relative z-10 hidden md:flex items-center gap-2">
@@ -97,7 +97,7 @@ export function NavBar({ items, className }: NavBarProps) {
               {isActive && (
                 <motion.div
                   layoutId={uniqueId}
-                  className="absolute inset-0 w-full rounded-full -z-0 bg-gradient-to-r from-indigo-600 to-purple-600 shadow-md shadow-indigo-200/50 dark:shadow-indigo-900/50"
+                  className="absolute inset-0 w-full rounded-full -z-0 bg-gradient-to-r from-[#DF7373] to-[#DF7373]/80 shadow-md shadow-[#DF7373]/20 dark:shadow-[#DF7373]/20"
                   initial={false}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}

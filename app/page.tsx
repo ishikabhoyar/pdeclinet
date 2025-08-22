@@ -21,13 +21,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             {/* Left Content - Hero Text */}
             <div className="md:col-span-7 lg:col-span-7 flex flex-col">
-              <div className="inline-flex items-center px-4 py-2 bg-indigo-50 rounded-full mb-6 self-start">
-                <span className="text-xs font-semibold text-indigo-600">Decentralized Health Data Platform</span>
+              <div className="inline-flex items-center px-4 py-2 bg-[#DF7373]/10 rounded-full mb-6 self-start">
+                <span className="text-xs font-semibold text-[#DF7373]">Decentralized Health Data Platform</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
                 Secure Your Health Data with
-                <span className="block bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"> DeCliNet</span>
+                <span className="block bg-gradient-to-r text-[#DF7373] bg-clip-text"> DeCliNet</span>
               </h1>
               
               <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl">
@@ -36,7 +36,7 @@ export default function Home() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <Link href="/dashboard" className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg hover:opacity-90 transition-opacity text-center">
+                <Link href="/dashboard" className="px-8 py-3 bg-gradient-to-r from-[#DF7373] to-[#DF7373]/80 text-white font-medium rounded-lg hover:opacity-90 transition-opacity text-center">
                   Get Started
                 </Link>
                 <Link href="/research" className="px-8 py-3 border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors text-center flex items-center justify-center">
