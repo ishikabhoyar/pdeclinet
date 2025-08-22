@@ -49,10 +49,9 @@ export function SignupForm() {
   }
 
   return (
-    <div className="max-w-md w-full mx-auto mt-12 px-4 sm:px-0">
-      <div className="mb-6">
-        <h1 className="text-2xl font-semibold">Join DeCliNet</h1>
-      </div>
+    <div className="max-w-md w-full mx-0 mt-12 px-4 sm:px-0">
+      <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg">
+        <h1 className="text-2xl font-semibold mb-6">Join DeCliNet</h1>
       
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -116,6 +115,7 @@ export function SignupForm() {
           </div>
         </form>
       </Form>
+      </div>
     </div>
   )
 }

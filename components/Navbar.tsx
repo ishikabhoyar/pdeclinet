@@ -30,6 +30,12 @@ const Navbar = () => {
             Home
           </Link>
           <Link 
+            href="/dashboard" 
+            className="text-sm font-medium text-gray-700 hover:text-gray-900"
+          >
+            Dashboard
+          </Link>
+          <Link 
             href="/research" 
             className="text-sm font-medium text-gray-700 hover:text-gray-900"
           >
@@ -80,6 +86,12 @@ const Navbar = () => {
               Home
             </Link>
             <Link 
+              href="/dashboard" 
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              Dashboard
+            </Link>
+            <Link 
               href="/research" 
               className="text-sm font-medium text-gray-700 hover:text-gray-900"
             >
@@ -92,16 +104,10 @@ const Navbar = () => {
               Funding
             </Link>
             <Link 
-              href="/about" 
+              href="/community" 
               className="text-sm font-medium text-gray-700 hover:text-gray-900"
             >
-              About
-            </Link>
-            <Link 
-              href="/login" 
-              className="text-sm font-medium text-gray-700 hover:text-gray-900"
-            >
-              Login
+              Community
             </Link>
           </div>
         </div>

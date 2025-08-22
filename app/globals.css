@@ -120,3 +120,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom styles for background image */
+.bg-image-container {
+  background-image: url('/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+/* Home page background styling */
+.home-background {
+  background-image: url('/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
