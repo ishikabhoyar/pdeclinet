@@ -2,19 +2,6 @@
 
 import * as React from "react"
 import Link from "next/link"
-import Image from "next/image"
-
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
-import { cn } from "@/lib/utils"
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
@@ -23,56 +10,50 @@ const Navbar = () => {
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
-            <Image src="/globe.svg" alt="Logo" width={24} height={24} className="text-foreground" />
-            <span className="font-medium text-lg">PdecliNet</span>
+            <svg 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              className="h-6 w-6"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25" />
+            </svg>
+            <span className="font-bold text-lg">DeCliNet</span>
           </Link>
         </div>
-        <NavigationMenu>
-          <NavigationMenuList className="hidden md:flex space-x-1">
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-sm font-medium text-gray-700 hover:text-gray-900 px-3 py-2">Features</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                  {features.map((feature) => (
-                    <ListItem
-                      key={feature.title}
-                      title={feature.title}
-                      href={feature.href}
-                    >
-                      {feature.description}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link href="/pricing" className="text-sm font-medium text-gray-700 hover:text-gray-900 px-3 py-2">
-                  Pricing
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-gray-900 px-3 py-2">
-                  About
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-6">
           <Link 
-            href="/login" 
+            href="/" 
             className="text-sm font-medium text-gray-700 hover:text-gray-900"
           >
-            Log in
+            Home
           </Link>
           <Link 
-            href="/signup" 
-            className="bg-gray-900 text-white rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800"
+            href="/research" 
+            className="text-sm font-medium text-gray-700 hover:text-gray-900"
           >
-            Get Started
+            Research
+          </Link>
+          <Link 
+            href="/funding" 
+            className="text-sm font-medium text-gray-700 hover:text-gray-900"
+          >
+            Funding
+          </Link>
+          <Link 
+            href="/about" 
+            className="text-sm font-medium text-gray-700 hover:text-gray-900"
+          >
+            About
+          </Link>
+        </div>
+        <div className="hidden md:block">
+          <Link 
+            href="/login" 
+            className="text-sm font-medium bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-md transition-colors"
+          >
+            Login
           </Link>
         </div>
         <button 
@@ -86,61 +67,46 @@ const Navbar = () => {
           </svg>
         </button>
       </div>
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-gray-100">
+          <div className="flex flex-col space-y-4 p-4">
+            <Link 
+              href="/" 
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              Home
+            </Link>
+            <Link 
+              href="/research" 
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              Research
+            </Link>
+            <Link 
+              href="/funding" 
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              Funding
+            </Link>
+            <Link 
+              href="/about" 
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              About
+            </Link>
+            <Link 
+              href="/login" 
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              Login
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
 
-const features = [
-  {
-    title: "Analytics",
-    href: "/features/analytics",
-    description:
-      "Real-time data insights and reporting dashboards.",
-  },
-  {
-    title: "Security",
-    href: "/features/security",
-    description:
-      "Advanced security features to protect your data.",
-  },
-  {
-    title: "Integrations",
-    href: "/features/integrations",
-    description:
-      "Connect with your favorite tools and platforms.",
-  },
-  {
-    title: "Automation",
-    href: "/features/automation",
-    description:
-      "Streamline your workflows with smart automation.",
-  },
-]
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-50 focus:bg-gray-50",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium text-gray-900">{title}</div>
-          <p className="line-clamp-2 text-sm text-gray-500 mt-1">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  )
-})
-ListItem.displayName = "ListItem"
 
 export default Navbar
