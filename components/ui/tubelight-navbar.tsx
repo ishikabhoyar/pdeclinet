@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
@@ -20,17 +21,25 @@ interface NavBarProps {
 
 export function NavBar({ items, className }: NavBarProps) {
   const pathname = usePathname()
+  const router = useRouter()
   const [activeTab, setActiveTab] = useState("")
   const [isMobile, setIsMobile] = useState(false)
   const [uniqueId] = useState(() => `lamp-${Math.random().toString(36).slice(2, 11)}`)
+  const [navigationLock, setNavigationLock] = useState(false)
 
+  // Always update activeTab whenever pathname changes
   useEffect(() => {
     // Set active tab based on current pathname
-    const matchedItem = items.find(item => pathname === item.url || pathname.startsWith(item.url))
-    if (matchedItem) {
-      setActiveTab(matchedItem.name)
+    const exactMatch = items.find(item => pathname === item.url)
+    const prefixMatch = items.find(item => item.url !== '/' && pathname.startsWith(item.url))
+    const homeMatch = items.find(item => item.url === '/')
+    
+    if (exactMatch) {
+      setActiveTab(exactMatch.name)
+    } else if (prefixMatch) {
+      setActiveTab(prefixMatch.name)
     } else {
-      setActiveTab(items[0].name)
+      setActiveTab(homeMatch?.name || items[0].name)
     }
     
     const handleResize = () => {
@@ -59,10 +68,17 @@ export function NavBar({ items, className }: NavBarProps) {
               key={item.name}
               href={item.url}
               onClick={(e) => {
-                if (pathname === item.url) {
-                  e.preventDefault();
-                }
+                e.preventDefault();
+                if (navigationLock) return;
+                
+                setNavigationLock(true);
                 setActiveTab(item.name);
+                
+                // Small delay to ensure animation happens before navigation
+                setTimeout(() => {
+                  router.push(item.url);
+                  setNavigationLock(false);
+                }, 100);
               }}
               className={cn(
                 "relative cursor-pointer text-sm font-medium px-4 py-1.5 rounded-full transition-all flex items-center justify-center",
@@ -84,11 +100,18 @@ export function NavBar({ items, className }: NavBarProps) {
                   className="absolute inset-0 w-full rounded-full -z-0 bg-gradient-to-r from-indigo-600 to-purple-600 shadow-md shadow-indigo-200/50 dark:shadow-indigo-900/50"
                   initial={false}
                   animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   transition={{
                     type: "spring",
-                    stiffness: 400,
-                    damping: 25,
-                    mass: 0.5,
+                    stiffness: 500,
+                    damping: 30,
+                    mass: 0.8,
+                  }}
+                  style={{ 
+                    position: 'absolute',
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: '9999px',
                   }}
                 >
                   <div className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-10 h-1 bg-white/20 rounded-full">
