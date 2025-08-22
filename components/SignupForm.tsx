@@ -49,9 +49,15 @@ export function SignupForm() {
   }
 
   return (
-    <div className="max-w-md w-full mx-0 mt-12 px-4 sm:px-0">
-      <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg">
-        <h1 className="text-2xl font-semibold mb-6">Join DeCliNet</h1>
+    <div className="w-full max-w-md mx-auto md:mx-0">
+      <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+        <div className="flex items-center space-x-2 mb-2">
+          <div className="w-2 h-2 rounded-full bg-indigo-600"></div>
+          <div className="w-2 h-2 rounded-full bg-purple-600"></div>
+          <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+        </div>
+        <h2 className="text-2xl font-bold mb-2">Join DeCliNet</h2>
+        <p className="text-gray-500 text-sm mb-6">Create your account to get started</p>
       
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -60,12 +66,11 @@ export function SignupForm() {
             name="username"
             render={({ field }) => (
               <FormItem className="space-y-1.5">
-                <FormLabel className="text-sm font-normal text-gray-700">Username</FormLabel>
+                <FormLabel className="text-sm font-medium text-gray-700">Username</FormLabel>
                 <FormControl>
                   <Input 
                     placeholder="Choose a username" 
-                    className="h-10 border border-gray-300 rounded-md px-3 focus-visible:ring-1 focus-visible:ring-gray-400" 
-                    style={{ height: '44px' }}
+                    className="h-12 border border-gray-200 rounded-lg px-4 focus-visible:ring-2 focus-visible:ring-indigo-100 focus-visible:border-indigo-500 transition-all"
                     {...field} 
                   />
                 </FormControl>
@@ -79,12 +84,11 @@ export function SignupForm() {
             name="email"
             render={({ field }) => (
               <FormItem className="space-y-1.5">
-                <FormLabel className="text-sm font-normal text-gray-700">Email (Optional)</FormLabel>
+                <FormLabel className="text-sm font-medium text-gray-700">Email</FormLabel>
                 <FormControl>
                   <Input 
                     placeholder="Your email address" 
-                    className="h-10 border border-gray-300 rounded-md px-3 focus-visible:ring-1 focus-visible:ring-gray-400" 
-                    style={{ height: '44px' }}
+                    className="h-12 border border-gray-200 rounded-lg px-4 focus-visible:ring-2 focus-visible:ring-indigo-100 focus-visible:border-indigo-500 transition-all"
                     {...field} 
                   />
                 </FormControl>
@@ -93,25 +97,31 @@ export function SignupForm() {
             )}
           />
           
-          <div className="pt-2">
+          <div className="pt-3">
             <Button 
               type="submit" 
-              className="w-full bg-black text-white hover:bg-gray-800 h-10 text-sm rounded-md font-medium shadow-sm"
-              style={{ height: '44px' }}
+              className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white h-12 rounded-lg font-medium shadow-lg shadow-indigo-200/50 transition-all"
             >
-              Connect Wallet
+              Get Started
             </Button>
           </div>
           
-          <div className="text-xs text-gray-500 mt-4 text-center">
+          <div className="text-xs text-gray-500 mt-5 text-center">
             By signing up, you agree to our{' '}
-            <Link href="/terms" className="text-gray-500 hover:text-gray-700 underline">
+            <Link href="/terms" className="text-indigo-600 hover:text-indigo-700 font-medium">
               Terms of Service
             </Link>{' '}
             and{' '}
-            <Link href="/privacy" className="text-gray-500 hover:text-gray-700 underline">
+            <Link href="/privacy" className="text-indigo-600 hover:text-indigo-700 font-medium">
               Privacy Policy
             </Link>.
+          </div>
+          
+          <div className="text-center text-sm mt-4">
+            <span className="text-gray-500">Already have an account?</span>{' '}
+            <Link href="/login" className="text-indigo-600 font-medium hover:text-indigo-700">
+              Log in
+            </Link>
           </div>
         </form>
       </Form>

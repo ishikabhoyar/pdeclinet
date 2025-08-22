@@ -6,67 +6,99 @@ import Link from "next/link"
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+    <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100">
+      <div className="container flex h-20 items-center justify-between px-4 md:px-8 max-w-7xl mx-auto">
         <div className="flex items-center">
-          <Link href="/" className="flex items-center space-x-2">
-            <svg 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              className="h-6 w-6"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25" />
-            </svg>
-            <span className="font-bold text-lg">DeCliNet</span>
+          <Link href="/" className="flex items-center space-x-2.5">
+            <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl p-2 flex items-center justify-center shadow-lg shadow-indigo-200/50">
+              <svg 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                className="h-5 w-5"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25" />
+              </svg>
+            </div>
+            <span className="font-bold text-xl tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">DeCliNet</span>
           </Link>
         </div>
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-1">
           <Link 
             href="/" 
-            className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition-all"
           >
             Home
           </Link>
           <Link 
             href="/dashboard" 
-            className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition-all"
           >
             Dashboard
           </Link>
           <Link 
             href="/research" 
-            className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition-all"
           >
             Research
           </Link>
           <Link 
             href="/funding" 
-            className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition-all"
           >
             Funding
           </Link>
           <Link 
             href="/community" 
-            className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition-all"
           >
             Community
           </Link>
         </div>
-        <div className="hidden md:flex items-center space-x-4">
-          <button className="text-gray-700 hover:text-gray-900">
+        <div className="hidden md:flex items-center space-x-5">
+          <button className="relative p-2 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
               <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
             </svg>
+            <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-indigo-600"></span>
           </button>
-          <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile" className="h-full w-full object-cover" />
+          <div className="relative group">
+            <div className="h-10 w-10 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 p-0.5 shadow-md cursor-pointer">
+              <div className="h-full w-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile" className="h-full w-full object-cover" />
+              </div>
+            </div>
+            <div className="hidden group-hover:block absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg py-2 border border-gray-100">
+              <Link href="/profile" className="px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                My Profile
+              </Link>
+              <Link href="/settings" className="px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                Settings
+              </Link>
+              <div className="border-t border-gray-100 my-1"></div>
+              <Link href="/logout" className="px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                  <polyline points="16 17 21 12 16 7"></polyline>
+                  <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                Sign Out
+              </Link>
+            </div>
           </div>
         </div>
         <button 
-          className="md:hidden p-2 rounded-md"
+          className="md:hidden p-2 rounded-lg hover:bg-indigo-50/50 transition-all"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -77,38 +109,50 @@ const Navbar = () => {
         </button>
       </div>
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-100">
-          <div className="flex flex-col space-y-4 p-4">
+        <div className="md:hidden bg-white border-t border-gray-100 shadow-xl animate-fadeIn">
+          <div className="flex flex-col p-4">
             <Link 
               href="/" 
-              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+              className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition-all"
             >
               Home
             </Link>
             <Link 
               href="/dashboard" 
-              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+              className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition-all mt-1"
             >
               Dashboard
             </Link>
             <Link 
               href="/research" 
-              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+              className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition-all mt-1"
             >
               Research
             </Link>
             <Link 
               href="/funding" 
-              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+              className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition-all mt-1"
             >
               Funding
             </Link>
             <Link 
               href="/community" 
-              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+              className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/50 rounded-lg transition-all mt-1"
             >
               Community
             </Link>
+            <div className="border-t border-gray-100 my-3"></div>
+            <div className="flex items-center px-4 py-3">
+              <div className="h-10 w-10 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 p-0.5 shadow-md">
+                <div className="h-full w-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile" className="h-full w-full object-cover" />
+                </div>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm font-medium text-gray-900">Emma Wilson</p>
+                <p className="text-xs text-gray-500">emma@example.com</p>
+              </div>
+            </div>
           </div>
         </div>
       )}

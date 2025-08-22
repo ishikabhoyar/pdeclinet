@@ -65,145 +65,235 @@ export default function PrivacySettingsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <Navbar />
       
-      <main className="max-w-screen-xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+      <main className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-2xl font-semibold text-gray-900 mb-1">Privacy Settings</h1>
-          <p className="text-sm text-gray-600 mb-6">Manage your data sharing permissions</p>
+          <div className="inline-flex items-center px-4 py-2 bg-indigo-50 rounded-full mb-6 self-start">
+            <span className="text-xs font-semibold text-indigo-600">Step 2 of 2</span>
+          </div>
+          
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Privacy Settings</h1>
+          <p className="text-gray-600 mb-10 text-lg">Customize how your data is shared with researchers and projects</p>
           
           {/* Research Categories */}
-          <div className="mb-6">
-            <h2 className="text-base font-medium text-gray-900 mb-3">Research Categories</h2>
-            <div className="space-y-2">
+          <div className="mb-8 bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <div className="flex items-center mb-5">
+              <div className="h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
+                <div className="h-2.5 w-2.5 rounded-full bg-indigo-600"></div>
+              </div>
+              <h2 className="text-lg font-semibold text-gray-900">Research Categories</h2>
+            </div>
+            <p className="text-gray-600 mb-5 text-sm">Select the research categories that you're willing to share your data with.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
               {researchCategories.map((category) => (
                 <div key={category} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={category.replace(/\s+/g, '-').toLowerCase()}
-                    checked={selectedCategories.includes(category)}
-                    onChange={() => handleCategoryChange(category)}
-                    className="h-4 w-4 text-black border-gray-300 rounded focus:ring-gray-400"
-                  />
-                  <label 
-                    htmlFor={category.replace(/\s+/g, '-').toLowerCase()}
-                    className="ml-2 text-sm text-gray-700"
-                  >
-                    {category}
-                  </label>
+                  <div className="relative flex items-center">
+                    <input
+                      type="checkbox"
+                      id={category.replace(/\s+/g, '-').toLowerCase()}
+                      checked={selectedCategories.includes(category)}
+                      onChange={() => handleCategoryChange(category)}
+                      className="h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 focus:ring-offset-0"
+                    />
+                    <label 
+                      htmlFor={category.replace(/\s+/g, '-').toLowerCase()}
+                      className="ml-3 text-gray-700"
+                    >
+                      {category}
+                    </label>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
           
           {/* Data Sharing Timeframe */}
-          <div className="mb-6">
-            <h2 className="text-base font-medium text-gray-900 mb-3">Data Sharing Timeframe</h2>
-            <div className="space-y-2">
-              <div className="flex items-center border border-gray-200 rounded-md px-4 py-2">
-                <input
-                  type="radio"
-                  id="share-indefinitely"
-                  name="sharing-timeframe"
-                  value="indefinitely"
-                  checked={selectedTimeframe === "indefinitely"}
-                  onChange={() => setSelectedTimeframe("indefinitely")}
-                  className="h-4 w-4 text-black border-gray-300 focus:ring-gray-400"
-                />
-                <label 
-                  htmlFor="share-indefinitely"
-                  className="ml-2 text-sm text-gray-700"
-                >
-                  Share data indefinitely
-                </label>
+          <div className="mb-8 bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <div className="flex items-center mb-5">
+              <div className="h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
+                <div className="h-2.5 w-2.5 rounded-full bg-indigo-600"></div>
+              </div>
+              <h2 className="text-lg font-semibold text-gray-900">Data Sharing Timeframe</h2>
+            </div>
+            <p className="text-gray-600 mb-5 text-sm">Control how long your data is shared with approved researchers.</p>
+            
+            <div className="space-y-3 mt-5">
+              <div 
+                className={`flex items-center border ${selectedTimeframe === "indefinitely" ? "border-indigo-200 bg-indigo-50/50" : "border-gray-200"} rounded-lg px-5 py-3 cursor-pointer transition-all hover:bg-gray-50`}
+                onClick={() => setSelectedTimeframe("indefinitely")}
+              >
+                <div className="relative h-5 w-5 flex-shrink-0">
+                  <input
+                    type="radio"
+                    id="share-indefinitely"
+                    name="sharing-timeframe"
+                    value="indefinitely"
+                    checked={selectedTimeframe === "indefinitely"}
+                    onChange={() => setSelectedTimeframe("indefinitely")}
+                    className="h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:ring-offset-0"
+                  />
+                </div>
+                <div className="ml-3">
+                  <label 
+                    htmlFor="share-indefinitely"
+                    className="text-gray-800 font-medium cursor-pointer"
+                  >
+                    Share data indefinitely
+                  </label>
+                  <p className="text-xs text-gray-500 mt-1">Your data will be available to approved researchers with no time limitation.</p>
+                </div>
               </div>
               
-              <div className="flex items-center border border-gray-200 rounded-md px-4 py-2">
-                <input
-                  type="radio"
-                  id="share-limited"
-                  name="sharing-timeframe"
-                  value="limited"
-                  checked={selectedTimeframe === "limited"}
-                  onChange={() => setSelectedTimeframe("limited")}
-                  className="h-4 w-4 text-black border-gray-300 focus:ring-gray-400"
-                />
-                <label 
-                  htmlFor="share-limited"
-                  className="ml-2 text-sm text-gray-700"
-                >
-                  Share data for a limited time
-                </label>
+              <div 
+                className={`flex items-center border ${selectedTimeframe === "limited" ? "border-indigo-200 bg-indigo-50/50" : "border-gray-200"} rounded-lg px-5 py-3 cursor-pointer transition-all hover:bg-gray-50`}
+                onClick={() => setSelectedTimeframe("limited")}
+              >
+                <div className="relative h-5 w-5 flex-shrink-0">
+                  <input
+                    type="radio"
+                    id="share-limited"
+                    name="sharing-timeframe"
+                    value="limited"
+                    checked={selectedTimeframe === "limited"}
+                    onChange={() => setSelectedTimeframe("limited")}
+                    className="h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:ring-offset-0"
+                  />
+                </div>
+                <div className="ml-3">
+                  <label 
+                    htmlFor="share-limited"
+                    className="text-gray-800 font-medium cursor-pointer"
+                  >
+                    Share data for a limited time
+                  </label>
+                  <p className="text-xs text-gray-500 mt-1">Your data will only be available for the specified period.</p>
+                </div>
               </div>
               
-              <div className="flex items-center border border-gray-200 rounded-md px-4 py-2">
-                <input
-                  type="radio"
-                  id="do-not-share"
-                  name="sharing-timeframe"
-                  value="none"
-                  checked={selectedTimeframe === "none"}
-                  onChange={() => setSelectedTimeframe("none")}
-                  className="h-4 w-4 text-black border-gray-300 focus:ring-gray-400"
-                />
-                <label 
-                  htmlFor="do-not-share"
-                  className="ml-2 text-sm text-gray-700"
-                >
-                  Do not share data
-                </label>
+              <div 
+                className={`flex items-center border ${selectedTimeframe === "none" ? "border-indigo-200 bg-indigo-50/50" : "border-gray-200"} rounded-lg px-5 py-3 cursor-pointer transition-all hover:bg-gray-50`}
+                onClick={() => setSelectedTimeframe("none")}
+              >
+                <div className="relative h-5 w-5 flex-shrink-0">
+                  <input
+                    type="radio"
+                    id="do-not-share"
+                    name="sharing-timeframe"
+                    value="none"
+                    checked={selectedTimeframe === "none"}
+                    onChange={() => setSelectedTimeframe("none")}
+                    className="h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:ring-offset-0"
+                  />
+                </div>
+                <div className="ml-3">
+                  <label 
+                    htmlFor="do-not-share"
+                    className="text-gray-800 font-medium cursor-pointer"
+                  >
+                    Do not share data
+                  </label>
+                  <p className="text-xs text-gray-500 mt-1">Your data will not be accessible to any researchers.</p>
+                </div>
               </div>
             </div>
-          </div>
-          
-          {/* Select Timeframe Dropdown */}
-          <div className="mb-6">
-            <h2 className="text-base font-medium text-gray-900 mb-3">Select Timeframe</h2>
-            <select 
-              className="block w-64 py-2 px-3 border border-gray-300 bg-white rounded-md focus:outline-none focus:ring-gray-400 focus:border-gray-400 text-sm"
-              disabled={selectedTimeframe !== "limited"}
-            >
-              <option value="">Select Timeframe</option>
-              <option value="1m">1 Month</option>
-              <option value="3m">3 Months</option>
-              <option value="6m">6 Months</option>
-              <option value="1y">1 Year</option>
-            </select>
+            
+            {/* Select Timeframe Dropdown */}
+            {selectedTimeframe === "limited" && (
+              <div className="mt-6 ml-8">
+                <div className="flex items-center mb-2">
+                  <svg className="h-4 w-4 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <label className="text-sm font-medium text-gray-700">Select Duration</label>
+                </div>
+                <select 
+                  className="block w-full py-2.5 px-3 border border-gray-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 text-gray-700"
+                >
+                  <option value="">Select Timeframe</option>
+                  <option value="1m">1 Month</option>
+                  <option value="3m">3 Months</option>
+                  <option value="6m">6 Months</option>
+                  <option value="1y">1 Year</option>
+                </select>
+              </div>
+            )}
           </div>
           
           {/* Specific Permissions */}
-          <div className="mb-6">
-            <h2 className="text-base font-medium text-gray-900 mb-3">Specific Permissions</h2>
-            <div className="border rounded-md overflow-hidden">
+          <div className="mb-8 bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center">
+                <div className="h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
+                  <div className="h-2.5 w-2.5 rounded-full bg-indigo-600"></div>
+                </div>
+                <h2 className="text-lg font-semibold text-gray-900">Specific Permissions</h2>
+              </div>
+              <button className="text-indigo-600 hover:text-indigo-700 text-sm font-medium flex items-center transition-colors">
+                <svg className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                Add New
+              </button>
+            </div>
+            
+            <p className="text-gray-600 mb-5 text-sm">Manage specific access permissions for individual researchers and projects.</p>
+            
+            <div className="border border-gray-100 rounded-xl overflow-hidden shadow-sm">
               {/* Table Header */}
-              <div className="grid grid-cols-3 bg-gray-50 border-b">
-                <div className="px-4 py-2.5 text-left text-sm font-medium text-gray-700">Researcher/Project</div>
-                <div className="px-4 py-2.5 text-left text-sm font-medium text-gray-700">Access Level</div>
-                <div className="px-4 py-2.5 text-left text-sm font-medium text-gray-700">Duration</div>
+              <div className="grid grid-cols-3 bg-gray-50 border-b border-gray-100">
+                <div className="px-5 py-3 text-left text-sm font-medium text-gray-700">Researcher/Project</div>
+                <div className="px-5 py-3 text-left text-sm font-medium text-gray-700">Access Level</div>
+                <div className="px-5 py-3 text-left text-sm font-medium text-gray-700">Duration</div>
               </div>
               
               {/* Table Body */}
               {specificPermissions.map((permission, index) => (
                 <div 
                   key={index} 
-                  className={`grid grid-cols-3 ${index !== specificPermissions.length - 1 ? 'border-b' : ''}`}
+                  className={`grid grid-cols-3 ${index !== specificPermissions.length - 1 ? 'border-b border-gray-100' : ''} hover:bg-gray-50 transition-colors`}
                 >
-                  <div className="px-4 py-2.5 text-sm text-gray-700">{permission.researcher}</div>
-                  <div className="px-4 py-2.5 text-sm text-gray-700">{permission.accessLevel}</div>
-                  <div className="px-4 py-2.5 text-sm text-gray-700">{permission.duration}</div>
+                  <div className="px-5 py-3.5 text-sm text-gray-800 font-medium">{permission.researcher}</div>
+                  <div className="px-5 py-3.5 text-sm">
+                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                      permission.accessLevel === 'Full Access' ? 'bg-green-100 text-green-700' : 
+                      permission.accessLevel === 'Limited Access' ? 'bg-yellow-100 text-yellow-700' : 
+                      'bg-red-100 text-red-700'
+                    }`}>
+                      {permission.accessLevel}
+                    </span>
+                  </div>
+                  <div className="px-5 py-3.5 text-sm text-gray-700">{permission.duration}</div>
                 </div>
               ))}
             </div>
           </div>
           
-          {/* Save Button */}
-          <div className="flex justify-end mt-8">
-            <Button
-              onClick={handleSaveChanges}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-md text-sm"
+          {/* Action buttons */}
+          <div className="flex flex-col sm:flex-row sm:justify-between gap-4 mt-12">
+            <Button 
+              variant="outline" 
+              className="text-gray-600 border border-gray-200 bg-white hover:bg-gray-50 rounded-lg px-6 py-2 h-12 shadow-sm"
+              onClick={() => router.push('/upload')}
             >
-              Save Changes
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back
+            </Button>
+            
+            <Button 
+              onClick={() => {
+                handleSaveChanges();
+                router.push('/dashboard');
+              }}
+              className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 rounded-lg px-10 py-2 h-12 font-medium shadow-lg shadow-indigo-200/50"
+            >
+              Save & Continue
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </Button>
           </div>
         </div>
