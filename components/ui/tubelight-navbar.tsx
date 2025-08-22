@@ -22,6 +22,7 @@ export function NavBar({ items, className }: NavBarProps) {
   const pathname = usePathname()
   const [activeTab, setActiveTab] = useState("")
   const [isMobile, setIsMobile] = useState(false)
+  const [uniqueId] = useState(() => `lamp-${Math.random().toString(36).slice(2, 11)}`)
 
   useEffect(() => {
     // Set active tab based on current pathname
@@ -48,7 +49,7 @@ export function NavBar({ items, className }: NavBarProps) {
         className,
       )}
     >
-      <div className="flex items-center gap-1 bg-white/90 backdrop-blur-xl py-1.5 px-1.5 rounded-full shadow-sm border border-gray-100">
+      <div className="flex items-center gap-1 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl py-1.5 px-1.5 rounded-full shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name
@@ -57,15 +58,20 @@ export function NavBar({ items, className }: NavBarProps) {
             <Link
               key={item.name}
               href={item.url}
-              onClick={() => setActiveTab(item.name)}
+              onClick={(e) => {
+                if (pathname === item.url) {
+                  e.preventDefault();
+                }
+                setActiveTab(item.name);
+              }}
               className={cn(
                 "relative cursor-pointer text-sm font-medium px-4 py-1.5 rounded-full transition-all flex items-center justify-center",
                 isActive 
                   ? "text-white" 
-                  : "text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/50"
+                  : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/30"
               )}
             >
-              <span className="relative z-10 hidden md:flex items-center space-x-2">
+              <span className="relative z-10 hidden md:flex items-center gap-2">
                 <Icon size={16} strokeWidth={2.5} />
                 <span>{item.name}</span>
               </span>
@@ -74,13 +80,15 @@ export function NavBar({ items, className }: NavBarProps) {
               </span>
               {isActive && (
                 <motion.div
-                  layoutId="lamp"
-                  className="absolute inset-0 w-full rounded-full -z-0 bg-gradient-to-r from-indigo-600 to-purple-600 shadow-md shadow-indigo-200/50"
+                  layoutId={uniqueId}
+                  className="absolute inset-0 w-full rounded-full -z-0 bg-gradient-to-r from-indigo-600 to-purple-600 shadow-md shadow-indigo-200/50 dark:shadow-indigo-900/50"
                   initial={false}
+                  animate={{ opacity: 1 }}
                   transition={{
                     type: "spring",
-                    stiffness: 300,
-                    damping: 30,
+                    stiffness: 400,
+                    damping: 25,
+                    mass: 0.5,
                   }}
                 >
                   <div className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-10 h-1 bg-white/20 rounded-full">

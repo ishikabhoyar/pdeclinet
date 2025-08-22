@@ -93,12 +93,10 @@ const Navbar = () => {
         </button>
       </div>
       
-      {/* Mobile Tubelight Navbar */}
+        {/* Mobile Tubelight Navbar */}
       <div className="md:hidden">
-        <NavBar items={navItems} />
-      </div>
-      
-      {mobileMenuOpen && (
+        <NavBar items={navItems} className="mobile-nav" />
+      </div>      {mobileMenuOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-100 shadow-xl animate-in fade-in">
           <div className="flex flex-col p-4">
             <div className="flex items-center px-4 py-3">
