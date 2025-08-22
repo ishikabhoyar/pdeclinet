@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -38,10 +39,13 @@ export function SignupForm() {
     },
   })
 
+  const router = useRouter()
+  
   // Handle form submission
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values)
-    // Add your form submission logic here
+    // Redirect to the upload page using Next.js router
+    router.push("/upload")
   }
 
   return (

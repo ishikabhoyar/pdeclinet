@@ -42,19 +42,22 @@ const Navbar = () => {
             Funding
           </Link>
           <Link 
-            href="/about" 
+            href="/community" 
             className="text-sm font-medium text-gray-700 hover:text-gray-900"
           >
-            About
+            Community
           </Link>
         </div>
-        <div className="hidden md:block">
-          <Link 
-            href="/login" 
-            className="text-sm font-medium bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-md transition-colors"
-          >
-            Login
-          </Link>
+        <div className="hidden md:flex items-center space-x-4">
+          <button className="text-gray-700 hover:text-gray-900">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </button>
+          <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile" className="h-full w-full object-cover" />
+          </div>
         </div>
         <button 
           className="md:hidden p-2 rounded-md"
