@@ -1,4 +1,5 @@
-"use client"
+"use import Link from "next/link";
+import { Button } from "@/components/ui/button";lient"
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
@@ -70,8 +71,8 @@ export default function PrivacySettingsPage() {
       
       <main className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <div className="inline-flex items-center px-4 py-2 bg-indigo-50 rounded-full mb-6 self-start">
-            <span className="text-xs font-semibold text-indigo-600">Step 2 of 2</span>
+          <div className="inline-flex items-center px-4 py-2 bg-[#DF7373]/10 rounded-full mb-6 self-start">
+            <span className="text-xs font-semibold text-[#DF7373]">Step 2 of 2</span>
           </div>
           
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Privacy Settings</h1>
@@ -80,8 +81,8 @@ export default function PrivacySettingsPage() {
           {/* Research Categories */}
           <div className="mb-8 bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
             <div className="flex items-center mb-5">
-              <div className="h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
-                <div className="h-2.5 w-2.5 rounded-full bg-indigo-600"></div>
+              <div className="h-5 w-5 rounded-full bg-[#DF7373]/10 flex items-center justify-center mr-2">
+                <div className="h-2.5 w-2.5 rounded-full bg-[#DF7373]"></div>
               </div>
               <h2 className="text-lg font-semibold text-gray-900">Research Categories</h2>
             </div>
@@ -95,7 +96,7 @@ export default function PrivacySettingsPage() {
                       id={category.replace(/\s+/g, '-').toLowerCase()}
                       checked={selectedCategories.includes(category)}
                       onChange={() => handleCategoryChange(category)}
-                      className="h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 focus:ring-offset-0"
+                      className="h-5 w-5 text-[#DF7373] border-gray-300 rounded focus:ring-[#DF7373] focus:ring-offset-0"
                     />
                     <label 
                       htmlFor={category.replace(/\s+/g, '-').toLowerCase()}
@@ -112,8 +113,8 @@ export default function PrivacySettingsPage() {
           {/* Data Sharing Timeframe */}
           <div className="mb-8 bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
             <div className="flex items-center mb-5">
-              <div className="h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
-                <div className="h-2.5 w-2.5 rounded-full bg-indigo-600"></div>
+              <div className="h-5 w-5 rounded-full bg-[#DF7373]/10 flex items-center justify-center mr-2">
+                <div className="h-2.5 w-2.5 rounded-full bg-[#DF7373]"></div>
               </div>
               <h2 className="text-lg font-semibold text-gray-900">Data Sharing Timeframe</h2>
             </div>
@@ -121,7 +122,7 @@ export default function PrivacySettingsPage() {
             
             <div className="space-y-3 mt-5">
               <div 
-                className={`flex items-center border ${selectedTimeframe === "indefinitely" ? "border-indigo-200 bg-indigo-50/50" : "border-gray-200"} rounded-lg px-5 py-3 cursor-pointer transition-all hover:bg-gray-50`}
+                className={`flex items-center border ${selectedTimeframe === "indefinitely" ? "border-[#DF7373]/30 bg-[#DF7373]/10" : "border-gray-200"} rounded-lg px-5 py-3 cursor-pointer transition-all hover:bg-gray-50`}
                 onClick={() => setSelectedTimeframe("indefinitely")}
               >
                 <div className="relative h-5 w-5 flex-shrink-0">
@@ -132,7 +133,7 @@ export default function PrivacySettingsPage() {
                     value="indefinitely"
                     checked={selectedTimeframe === "indefinitely"}
                     onChange={() => setSelectedTimeframe("indefinitely")}
-                    className="h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:ring-offset-0"
+                    className="h-5 w-5 text-[#DF7373] border-gray-300 focus:ring-[#DF7373] focus:ring-offset-0"
                   />
                 </div>
                 <div className="ml-3">
@@ -147,7 +148,7 @@ export default function PrivacySettingsPage() {
               </div>
               
               <div 
-                className={`flex items-center border ${selectedTimeframe === "limited" ? "border-indigo-200 bg-indigo-50/50" : "border-gray-200"} rounded-lg px-5 py-3 cursor-pointer transition-all hover:bg-gray-50`}
+                className={`flex items-center border ${selectedTimeframe === "limited" ? "border-[#DF7373]/30 bg-[#DF7373]/10" : "border-gray-200"} rounded-lg px-5 py-3 cursor-pointer transition-all hover:bg-gray-50`}
                 onClick={() => setSelectedTimeframe("limited")}
               >
                 <div className="relative h-5 w-5 flex-shrink-0">
@@ -158,7 +159,7 @@ export default function PrivacySettingsPage() {
                     value="limited"
                     checked={selectedTimeframe === "limited"}
                     onChange={() => setSelectedTimeframe("limited")}
-                    className="h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:ring-offset-0"
+                    className="h-5 w-5 text-[#DF7373] border-gray-300 focus:ring-[#DF7373] focus:ring-offset-0"
                   />
                 </div>
                 <div className="ml-3">
@@ -173,7 +174,7 @@ export default function PrivacySettingsPage() {
               </div>
               
               <div 
-                className={`flex items-center border ${selectedTimeframe === "none" ? "border-indigo-200 bg-indigo-50/50" : "border-gray-200"} rounded-lg px-5 py-3 cursor-pointer transition-all hover:bg-gray-50`}
+                className={`flex items-center border ${selectedTimeframe === "none" ? "border-[#DF7373]/30 bg-[#DF7373]/10" : "border-gray-200"} rounded-lg px-5 py-3 cursor-pointer transition-all hover:bg-gray-50`}
                 onClick={() => setSelectedTimeframe("none")}
               >
                 <div className="relative h-5 w-5 flex-shrink-0">
@@ -184,7 +185,7 @@ export default function PrivacySettingsPage() {
                     value="none"
                     checked={selectedTimeframe === "none"}
                     onChange={() => setSelectedTimeframe("none")}
-                    className="h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500 focus:ring-offset-0"
+                    className="h-5 w-5 text-[#DF7373] border-gray-300 focus:ring-[#DF7373] focus:ring-offset-0"
                   />
                 </div>
                 <div className="ml-3">
@@ -203,7 +204,7 @@ export default function PrivacySettingsPage() {
             {selectedTimeframe === "limited" && (
               <div className="mt-6 ml-8">
                 <div className="flex items-center mb-2">
-                  <svg className="h-4 w-4 text-indigo-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-4 w-4 text-[#DF7373] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   <label className="text-sm font-medium text-gray-700">Select Duration</label>

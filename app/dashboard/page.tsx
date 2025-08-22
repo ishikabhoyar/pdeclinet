@@ -80,8 +80,8 @@ export default function DashboardPage() {
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-sm font-medium text-gray-700">Total DCNET Balance</h2>
-              <div className="bg-indigo-100 p-1.5 rounded-md">
-                <svg className="h-4 w-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-[#DF7373]/10 rounded-md p-1.5">
+                <svg className="h-4 w-4 text-[#DF7373]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -96,8 +96,8 @@ export default function DashboardPage() {
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-sm font-medium text-gray-700">Data Contributions</h2>
-              <div className="bg-purple-100 p-1.5 rounded-md">
-                <svg className="h-4 w-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-[#DF7373]/10 rounded-md p-1.5">
+                <svg className="h-4 w-4 text-[#DF7373]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
@@ -112,8 +112,8 @@ export default function DashboardPage() {
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-sm font-medium text-gray-700">Research Impact</h2>
-              <div className="bg-blue-100 p-1.5 rounded-md">
-                <svg className="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-[#DF7373]/10 rounded-md p-1.5">
+                <svg className="h-4 w-4 text-[#DF7373]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                 </svg>
               </div>
@@ -130,12 +130,12 @@ export default function DashboardPage() {
         <section className="mb-8 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
           <div className="flex items-center justify-between mb-5">
             <div className="flex items-center">
-              <div className="h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
-                <div className="h-2.5 w-2.5 rounded-full bg-indigo-600"></div>
+              <div className="h-5 w-5 rounded-full bg-[#DF7373]/10 flex items-center justify-center mr-2">
+                <div className="h-2.5 w-2.5 rounded-full bg-[#DF7373]"></div>
               </div>
               <h2 className="text-lg font-semibold text-gray-900">Transaction History</h2>
             </div>
-            <button className="text-indigo-600 hover:text-indigo-700 text-sm font-medium flex items-center transition-colors">
+            <button className="text-[#DF7373] hover:text-[#DF7373]/80 text-sm font-medium flex items-center transition-colors">
               View All
               <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -177,13 +177,13 @@ export default function DashboardPage() {
           <section className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center">
-                <div className="h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
-                  <div className="h-2.5 w-2.5 rounded-full bg-indigo-600"></div>
+                <div className="h-5 w-5 rounded-full bg-[#DF7373]/10 flex items-center justify-center mr-2">
+                  <div className="h-2.5 w-2.5 rounded-full bg-[#DF7373]"></div>
                 </div>
                 <h2 className="text-lg font-semibold text-gray-900">Token Earnings</h2>
               </div>
               <div className="flex space-x-2 text-xs font-medium">
-                <button className="px-2 py-1 bg-indigo-600 text-white rounded">1M</button>
+                <button className="px-2 py-1 bg-[#DF7373] text-white rounded">1M</button>
                 <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded">3M</button>
                 <button className="px-2 py-1 bg-gray-100 text-gray-700 rounded">6M</button>
               </div>
@@ -203,12 +203,12 @@ export default function DashboardPage() {
                 <svg viewBox="0 0 600 100" className="w-full h-full">
                   <defs>
                     <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#4f46e5" stopOpacity="0.15" />
-                      <stop offset="100%" stopColor="#4f46e5" stopOpacity="0.01" />
+                      <stop offset="0%" stopColor="#DF7373" stopOpacity="0.15" />
+                      <stop offset="100%" stopColor="#DF7373" stopOpacity="0.01" />
                     </linearGradient>
                   </defs>
                   <path d="M0,70 C50,60 100,50 150,40 C200,30 250,50 300,60 C350,70 400,40 450,30 C500,20 550,30 600,20 L600,100 L0,100 Z" fill="url(#gradient)" />
-                  <path d="M0,70 C50,60 100,50 150,40 C200,30 250,50 300,60 C350,70 400,40 450,30 C500,20 550,30 600,20" fill="none" stroke="#4f46e5" strokeWidth="2" />
+                  <path d="M0,70 C50,60 100,50 150,40 C200,30 250,50 300,60 C350,70 400,40 450,30 C500,20 550,30 600,20" fill="none" stroke="#DF7373" strokeWidth="2" />
                 </svg>
               </div>
               <div className="flex justify-between text-xs text-gray-500 absolute bottom-0 left-0 right-0 px-2">
@@ -222,16 +222,16 @@ export default function DashboardPage() {
           {/* How to Use Tokens */}
           <section className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
             <div className="flex items-center mb-5">
-              <div className="h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
-                <div className="h-2.5 w-2.5 rounded-full bg-indigo-600"></div>
+              <div className="h-5 w-5 rounded-full bg-[#DF7373]/10 flex items-center justify-center mr-2">
+                <div className="h-2.5 w-2.5 rounded-full bg-[#DF7373]"></div>
               </div>
               <h2 className="text-lg font-semibold text-gray-900">How to Use DCNET Tokens</h2>
             </div>
             
             <div className="space-y-4">
               <div className="flex items-start">
-                <div className="bg-indigo-100 p-2 rounded-md mr-3">
-                  <svg className="h-5 w-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="bg-[#DF7373]/10 p-2 rounded-md mr-3">
+                  <svg className="h-5 w-5 text-[#DF7373]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
@@ -242,8 +242,8 @@ export default function DashboardPage() {
               </div>
               
               <div className="flex items-start">
-                <div className="bg-purple-100 p-2 rounded-md mr-3">
-                  <svg className="h-5 w-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="bg-[#DF7373]/10 p-2 rounded-md mr-3">
+                  <svg className="h-5 w-5 text-[#DF7373]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
                 </div>
@@ -254,8 +254,8 @@ export default function DashboardPage() {
               </div>
               
               <div className="flex items-start">
-                <div className="bg-blue-100 p-2 rounded-md mr-3">
-                  <svg className="h-5 w-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="bg-[#DF7373]/10 p-2 rounded-md mr-3">
+                  <svg className="h-5 w-5 text-[#DF7373]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
@@ -271,8 +271,8 @@ export default function DashboardPage() {
         {/* Frequently Asked Questions */}
         <section className="mb-8 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
           <div className="flex items-center mb-5">
-            <div className="h-5 w-5 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
-              <div className="h-2.5 w-2.5 rounded-full bg-indigo-600"></div>
+            <div className="h-5 w-5 rounded-full bg-[#DF7373]/10 flex items-center justify-center mr-2">
+              <div className="h-2.5 w-2.5 rounded-full bg-[#DF7373]"></div>
             </div>
             <h2 className="text-lg font-semibold text-gray-900">Frequently Asked Questions</h2>
           </div>
@@ -285,12 +285,12 @@ export default function DashboardPage() {
               >
                 <button 
                   onClick={() => toggleFAQ(index)}
-                  className={`w-full flex items-center justify-between px-5 py-4 text-left transition-colors ${faq.isOpen ? "bg-indigo-50/50" : "hover:bg-gray-50"}`}
+                  className={`w-full flex items-center justify-between px-5 py-4 text-left transition-colors ${faq.isOpen ? "bg-[#DF7373]/10" : "hover:bg-gray-50"}`}
                 >
                   <span className="font-medium text-gray-800">{faq.question}</span>
-                  <div className={`h-6 w-6 rounded-full ${faq.isOpen ? "bg-indigo-100" : "bg-gray-100"} flex items-center justify-center transition-colors`}>
+                  <div className={`h-6 w-6 rounded-full ${faq.isOpen ? "bg-[#DF7373]/10" : "bg-gray-100"} flex items-center justify-center transition-colors`}>
                     {faq.isOpen ? (
-                      <ChevronUpIcon className="w-4 h-4 text-indigo-600" />
+                      <ChevronUpIcon className="w-4 h-4 text-[#DF7373]" />
                     ) : (
                       <ChevronDownIcon className="w-4 h-4 text-gray-600" />
                     )}
